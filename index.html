@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission Locale Pays Basque - Séminaire Stratégique</title>
+    <title>Mission Locale Pays Basque - Séminaire Stratégique 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,42 +20,48 @@
                         'lato': ['Lato', 'sans-serif'],
                         'montserrat': ['Montserrat', 'sans-serif'],
                         'nunito': ['Nunito', 'sans-serif']
+                    },
+                    aspectRatio: {
+                        '16/9': '16 / 9',
                     }
                 }
             }
         }
     </script>
     <style>
+        .presentation-container {
+            aspect-ratio: 16 / 9;
+            max-height: 100vh;
+        }
         .card-hover {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-hover:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
         .modal-backdrop {
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
         }
         .slide-in {
-            animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         @keyframes slideIn {
             from { 
                 opacity: 0; 
-                transform: translateY(30px) scale(0.95); 
+                transform: translateY(40px) scale(0.9); 
             }
             to { 
                 opacity: 1; 
                 transform: translateY(0) scale(1); 
             }
         }
-        .icon-bounce {
-            animation: iconBounce 2s infinite;
+        .icon-pulse {
+            animation: iconPulse 2s infinite;
         }
-        @keyframes iconBounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-8px); }
-            60% { transform: translateY(-4px); }
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
         .gradient-text {
             background: linear-gradient(135deg, #20B2AA, #FF6B35);
@@ -63,155 +69,172 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1.5rem;
+            height: 100%;
+        }
+        .bloc-1 { grid-column: 1; grid-row: 1; }
+        .bloc-2 { grid-column: 2; grid-row: 1; }
+        .bloc-3 { grid-column: 3; grid-row: 1; }
+        .bloc-4 { grid-column: 1; grid-row: 2; }
+        .bloc-5 { grid-column: 2; grid-row: 2; }
+        .bloc-6 { grid-column: 3; grid-row: 2; }
+        .bloc-7 { grid-column: 4; grid-row: 1 / 3; }
     </style>
 </head>
-<body class="bg-gradient-to-br from-ml-gray via-white to-ml-gray font-lato min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-xl border-b-4 border-txik-txak">
-        <div class="max-w-7xl mx-auto px-8 py-10">
-            <div class="text-center">
-                <h1 class="text-5xl font-montserrat font-bold gradient-text mb-4">Mission Locale Pays Basque</h1>
-                <p class="text-2xl text-ml-dark-gray font-nunito font-light">Séminaire Stratégique 2025</p>
-                <div class="mt-6 w-24 h-1 bg-gradient-to-r from-txik-txak to-baserriberri mx-auto rounded-full"></div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-8 py-16">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-montserrat font-semibold text-gray-800 mb-4">Axes de Réflexion Stratégique</h2>
-            <p class="text-lg text-ml-dark-gray font-nunito max-w-3xl mx-auto">Cliquez sur chaque bloc pour découvrir les objectifs, méthodes et livrables de nos ateliers thématiques</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Bloc 1 - L'accompagnement aujourd'hui -->
-            <div class="card-hover bg-white rounded-2xl shadow-lg p-8 cursor-pointer border-l-6 border-txik-txak relative overflow-hidden" onclick="openModal('modal1')">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-txik-txak/10 to-transparent rounded-bl-full"></div>
-                <div class="relative z-10">
-                    <div class="flex items-center justify-center w-16 h-16 bg-txik-txak rounded-2xl mb-6 icon-bounce">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-4">L'accompagnement aujourd'hui</h3>
-                    <p class="text-ml-dark-gray font-nunito mb-6 leading-relaxed">Quelle réalité ? Clarifier ce que recouvre l'accompagnement en 2025</p>
-                    <div class="flex items-center text-txik-txak font-semibold font-nunito">
-                        <span>Explorer</span>
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </div>
+<body class="bg-gradient-to-br from-ml-gray via-white to-ml-gray font-lato overflow-hidden">
+    <!-- Presentation Container -->
+    <div class="presentation-container w-full bg-white shadow-2xl mx-auto">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-txik-txak to-baserriberri text-white p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-montserrat font-bold">Mission Locale Pays Basque</h1>
+                    <p class="text-lg font-nunito font-light opacity-90">Séminaire Stratégique 2025</p>
                 </div>
-            </div>
-
-            <!-- Bloc 2 - Replacer les jeunes au centre -->
-            <div class="card-hover bg-white rounded-2xl shadow-lg p-8 cursor-pointer border-l-6 border-baserriberri relative overflow-hidden" onclick="openModal('modal2')">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-baserriberri/10 to-transparent rounded-bl-full"></div>
-                <div class="relative z-10">
-                    <div class="flex items-center justify-center w-16 h-16 bg-baserriberri rounded-2xl mb-6 icon-bounce">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="text-right">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-4">Replacer les jeunes au centre</h3>
-                    <p class="text-ml-dark-gray font-nunito mb-6 leading-relaxed">De "bénéficiaires" à "acteurs partenaires" de leurs parcours</p>
-                    <div class="flex items-center text-baserriberri font-semibold font-nunito">
-                        <span>Explorer</span>
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </div>
                 </div>
             </div>
+        </header>
 
-            <!-- Bloc 3 - Associer les jeunes à notre place dans le territoire -->
-            <div class="card-hover bg-white rounded-2xl shadow-lg p-8 cursor-pointer border-l-6 border-txik-txak relative overflow-hidden" onclick="openModal('modal3')">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-txik-txak/10 to-transparent rounded-bl-full"></div>
-                <div class="relative z-10">
-                    <div class="flex items-center justify-center w-16 h-16 bg-txik-txak rounded-2xl mb-6 icon-bounce">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-4">Notre place dans le territoire</h3>
-                    <p class="text-ml-dark-gray font-nunito mb-6 leading-relaxed">Articuler la voix des jeunes dans notre rôle au sein du RPE</p>
-                    <div class="flex items-center text-txik-txak font-semibold font-nunito">
-                        <span>Explorer</span>
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
+        <!-- Main Grid -->
+        <main class="p-6 h-full">
+            <div class="grid-layout">
+                <!-- Bloc 1 - L'accompagnement aujourd'hui -->
+                <div class="bloc-1 card-hover bg-gradient-to-br from-txik-txak to-txik-txak/80 text-white rounded-2xl p-6 cursor-pointer relative overflow-hidden" onclick="openModal('modal1')">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-bl-full"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 icon-pulse">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-montserrat font-bold mb-2">Accompagnement</h3>
+                            <p class="text-sm font-nunito opacity-90">Quelle réalité ?</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Bloc 4 - Faire évoluer le métier et les pratiques -->
-            <div class="card-hover bg-white rounded-2xl shadow-lg p-8 cursor-pointer border-l-6 border-baserriberri relative overflow-hidden" onclick="openModal('modal4')">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-baserriberri/10 to-transparent rounded-bl-full"></div>
-                <div class="relative z-10">
-                    <div class="flex items-center justify-center w-16 h-16 bg-baserriberri rounded-2xl mb-6 icon-bounce">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-4">Évolution du métier</h3>
-                    <p class="text-ml-dark-gray font-nunito mb-6 leading-relaxed">Adapter l'accompagnement aux mutations numériques et écologiques</p>
-                    <div class="flex items-center text-baserriberri font-semibold font-nunito">
-                        <span>Explorer</span>
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
+                <!-- Bloc 2 - Replacer les jeunes au centre -->
+                <div class="bloc-2 card-hover bg-gradient-to-br from-baserriberri to-baserriberri/80 text-white rounded-2xl p-6 cursor-pointer relative overflow-hidden" onclick="openModal('modal2')">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-bl-full"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 icon-pulse">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-montserrat font-bold mb-2">Replacer les jeunes au centre</h3>
+                            <p class="text-sm font-nunito opacity-90">Acteurs partenaires</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Bloc 5 - Affirmer nos valeurs au sein du RPE -->
-            <div class="card-hover bg-white rounded-2xl shadow-lg p-8 cursor-pointer border-l-6 border-txik-txak relative overflow-hidden" onclick="openModal('modal5')">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-txik-txak/10 to-transparent rounded-bl-full"></div>
-                <div class="relative z-10">
-                    <div class="flex items-center justify-center w-16 h-16 bg-txik-txak rounded-2xl mb-6 icon-bounce">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-4">Nos valeurs dans le RPE</h3>
-                    <p class="text-ml-dark-gray font-nunito mb-6 leading-relaxed">Clarifier notre spécificité : proximité, approche globale, inclusion</p>
-                    <div class="flex items-center text-txik-txak font-semibold font-nunito">
-                        <span>Explorer</span>
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
+                <!-- Bloc 3 - Notre rôle dans le territoire -->
+                <div class="bloc-3 card-hover bg-gradient-to-br from-txik-txak to-txik-txak/80 text-white rounded-2xl p-6 cursor-pointer relative overflow-hidden" onclick="openModal('modal3')">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-bl-full"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 icon-pulse">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-montserrat font-bold mb-2">Notre rôle dans le territoire</h3>
+                            <p class="text-sm font-nunito opacity-90">Avec les jeunes</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Bloc 6 - Lever les freins -->
-            <div class="card-hover bg-white rounded-2xl shadow-lg p-8 cursor-pointer border-l-6 border-baserriberri relative overflow-hidden" onclick="openModal('modal6')">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-baserriberri/10 to-transparent rounded-bl-full"></div>
-                <div class="relative z-10">
-                    <div class="flex items-center justify-center w-16 h-16 bg-baserriberri rounded-2xl mb-6 icon-bounce">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                        </svg>
+                <!-- Bloc 4 - Évolution du métier -->
+                <div class="bloc-4 card-hover bg-gradient-to-br from-baserriberri to-baserriberri/80 text-white rounded-2xl p-6 cursor-pointer relative overflow-hidden" onclick="openModal('modal4')">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-bl-full"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 icon-pulse">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-montserrat font-bold mb-2">Évolution du métier</h3>
+                            <p class="text-sm font-nunito opacity-90">Métiers de demain</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-4">Lever les freins</h3>
-                    <p class="text-ml-dark-gray font-nunito mb-6 leading-relaxed">Mieux communiquer et travailler ensemble en interne</p>
-                    <div class="flex items-center text-baserriberri font-semibold font-nunito">
-                        <span>Explorer</span>
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
+                </div>
+
+                <!-- Bloc 5 - Nos valeurs dans le RPE -->
+                <div class="bloc-5 card-hover bg-gradient-to-br from-txik-txak to-txik-txak/80 text-white rounded-2xl p-6 cursor-pointer relative overflow-hidden" onclick="openModal('modal5')">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-bl-full"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 icon-pulse">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-montserrat font-bold mb-2">Nos valeurs dans le RPE</h3>
+                            <p class="text-sm font-nunito opacity-90">Spécificité ML</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloc 6 - Communication & Transversalité -->
+                <div class="bloc-6 card-hover bg-gradient-to-br from-baserriberri to-baserriberri/80 text-white rounded-2xl p-6 cursor-pointer relative overflow-hidden" onclick="openModal('modal6')">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-bl-full"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 icon-pulse">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-montserrat font-bold mb-2">Communication</h3>
+                            <p class="text-sm font-nunito opacity-90">Transversalité & support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloc 7 - Restructurer l'accueil (plus grand) -->
+                <div class="bloc-7 card-hover bg-gradient-to-br from-txik-txak via-txik-txak/90 to-baserriberri text-white rounded-2xl p-8 cursor-pointer relative overflow-hidden" onclick="openModal('modal7')">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6 icon-pulse">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2m-6 4h6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-montserrat font-bold mb-4">Accueil rénové</h3>
+                            <p class="text-base font-nunito opacity-90 mb-4">Première étape active du parcours</p>
+                            <div class="flex items-center text-white/80">
+                                <span class="text-sm font-nunito">Cliquer pour explorer</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <!-- Modals -->
     <!-- Modal 1 - L'accompagnement aujourd'hui -->
-    <div id="modal1" class="fixed inset-0 bg-black bg-opacity-60 modal-backdrop hidden z-50" onclick="closeModal('modal1')">
-        <div class="flex items-center justify-center min-h-screen p-6">
-            <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
+    <div id="modal1" class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50" onclick="closeModal('modal1')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
                 <div class="bg-gradient-to-r from-txik-txak to-txik-txak/80 text-white p-8 rounded-t-3xl">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
@@ -240,19 +263,11 @@
                         </div>
                         <div class="bg-gradient-to-br from-baserriberri/5 to-baserriberri/10 p-6 rounded-2xl border border-baserriberri/20">
                             <h3 class="font-montserrat font-bold text-baserriberri mb-4 flex items-center">
-                                <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">✓</span>
-                                Pertinence
+                                <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">❓</span>
+                                Questions clés
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Réaffirmer le socle (accueil, diagnostic, plan, suivi, sortie).</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Que faisons-nous bien ? Qu'est-ce qui est flou ? Quelles pratiques harmoniser ?</p>
                         </div>
-                    </div>
-                    
-                    <div class="bg-ml-gray p-6 rounded-2xl">
-                        <h3 class="font-montserrat font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white text-sm mr-3">👥</span>
-                            Ressources internes
-                        </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Conseillers expérimentés.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-txik-txak/10 via-white to-baserriberri/10 p-6 rounded-2xl border-2 border-dashed border-txik-txak/30">
@@ -260,7 +275,7 @@
                             <span class="w-8 h-8 bg-gradient-to-r from-txik-txak to-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">🔧</span>
                             Méthode séminaire
                         </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Carte "forces/faiblesses/zones grises".</p>
+                        <p class="font-nunito text-gray-700 leading-relaxed">Cartographie forces/faiblesses/zones grises.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-green-50 to-green-100 border-l-6 border-green-400 p-6 rounded-r-2xl">
@@ -268,7 +283,7 @@
                             <span class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white text-sm mr-3">📋</span>
                             Livrable
                         </h3>
-                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Schéma collectif "l'accompagnement aujourd'hui".</p>
+                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Schéma collectif "l'accompagnement Mission Locale aujourd'hui".</p>
                     </div>
                 </div>
             </div>
@@ -276,9 +291,9 @@
     </div>
 
     <!-- Modal 2 - Replacer les jeunes au centre -->
-    <div id="modal2" class="fixed inset-0 bg-black bg-opacity-60 modal-backdrop hidden z-50" onclick="closeModal('modal2')">
-        <div class="flex items-center justify-center min-h-screen p-6">
-            <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
+    <div id="modal2" class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50" onclick="closeModal('modal2')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
                 <div class="bg-gradient-to-r from-baserriberri to-baserriberri/80 text-white p-8 rounded-t-3xl">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
@@ -303,23 +318,15 @@
                                 <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">🎯</span>
                                 Objectifs
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Passer des jeunes "bénéficiaires" à "acteurs partenaires".</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Transformer la place des jeunes → acteurs partenaires.</p>
                         </div>
                         <div class="bg-gradient-to-br from-txik-txak/5 to-txik-txak/10 p-6 rounded-2xl border border-txik-txak/20">
                             <h3 class="font-montserrat font-bold text-txik-txak mb-4 flex items-center">
-                                <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">✓</span>
-                                Pertinence
+                                <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">❓</span>
+                                Questions clés
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Co-construction des parcours et gouvernance partagée.</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Comment mieux écouter leurs attentes ? Comment traduire leur voix dans nos décisions ?</p>
                         </div>
-                    </div>
-                    
-                    <div class="bg-ml-gray p-6 rounded-2xl">
-                        <h3 class="font-montserrat font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white text-sm mr-3">👥</span>
-                            Ressources internes
-                        </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Animateurs CEJ, conseillers citoyenneté.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-baserriberri/10 via-white to-txik-txak/10 p-6 rounded-2xl border-2 border-dashed border-baserriberri/30">
@@ -327,7 +334,7 @@
                             <span class="w-8 h-8 bg-gradient-to-r from-baserriberri to-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">🔧</span>
                             Méthode séminaire
                         </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Forum ouvert, fresque d'attentes.</p>
+                        <p class="font-nunito text-gray-700 leading-relaxed">Forum ouvert, fresque d'attentes, mur d'expression.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-green-50 to-green-100 border-l-6 border-green-400 p-6 rounded-r-2xl">
@@ -342,10 +349,10 @@
         </div>
     </div>
 
-    <!-- Modal 3 - Notre place dans le territoire -->
-    <div id="modal3" class="fixed inset-0 bg-black bg-opacity-60 modal-backdrop hidden z-50" onclick="closeModal('modal3')">
-        <div class="flex items-center justify-center min-h-screen p-6">
-            <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
+    <!-- Modal 3 - Notre rôle dans le territoire -->
+    <div id="modal3" class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50" onclick="closeModal('modal3')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
                 <div class="bg-gradient-to-r from-txik-txak to-txik-txak/80 text-white p-8 rounded-t-3xl">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
@@ -354,7 +361,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                 </svg>
                             </div>
-                            <h2 class="text-3xl font-montserrat font-bold">Associer les jeunes à notre place dans le territoire</h2>
+                            <h2 class="text-3xl font-montserrat font-bold">Associer les jeunes à notre rôle dans le territoire</h2>
                         </div>
                         <button onclick="closeModal('modal3')" class="text-white hover:text-gray-200 transition-colors">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -370,23 +377,15 @@
                                 <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">🎯</span>
                                 Objectifs
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Articuler la voix des jeunes dans notre rôle au sein du RPE et de l'écosystème emploi.</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Articuler notre place dans le RPE et l'écosystème emploi avec la voix des jeunes.</p>
                         </div>
                         <div class="bg-gradient-to-br from-baserriberri/5 to-baserriberri/10 p-6 rounded-2xl border border-baserriberri/20">
                             <h3 class="font-montserrat font-bold text-baserriberri mb-4 flex items-center">
-                                <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">✓</span>
-                                Pertinence
+                                <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">❓</span>
+                                Questions clés
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Renforcer la légitimité de la Mission Locale.</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Comment les jeunes perçoivent-ils la Mission Locale ? Comment légitimer notre rôle avec eux ?</p>
                         </div>
-                    </div>
-                    
-                    <div class="bg-ml-gray p-6 rounded-2xl">
-                        <h3 class="font-montserrat font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white text-sm mr-3">👥</span>
-                            Ressources internes
-                        </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Pôle communication, référents projets.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-txik-txak/10 via-white to-baserriberri/10 p-6 rounded-2xl border-2 border-dashed border-txik-txak/30">
@@ -394,7 +393,7 @@
                             <span class="w-8 h-8 bg-gradient-to-r from-txik-txak to-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">🔧</span>
                             Méthode séminaire
                         </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Débats mouvants, témoignages jeunes.</p>
+                        <p class="font-nunito text-gray-700 leading-relaxed">Débats mouvants, restitution par des jeunes.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-green-50 to-green-100 border-l-6 border-green-400 p-6 rounded-r-2xl">
@@ -402,7 +401,7 @@
                             <span class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white text-sm mr-3">📋</span>
                             Livrable
                         </h3>
-                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Document "Notre rôle vu par les jeunes et confirmé par les pros".</p>
+                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Document "Notre rôle vu par les jeunes".</p>
                     </div>
                 </div>
             </div>
@@ -410,9 +409,9 @@
     </div>
 
     <!-- Modal 4 - Évolution du métier -->
-    <div id="modal4" class="fixed inset-0 bg-black bg-opacity-60 modal-backdrop hidden z-50" onclick="closeModal('modal4')">
-        <div class="flex items-center justify-center min-h-screen p-6">
-            <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
+    <div id="modal4" class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50" onclick="closeModal('modal4')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
                 <div class="bg-gradient-to-r from-baserriberri to-baserriberri/80 text-white p-8 rounded-t-3xl">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
@@ -421,7 +420,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
                             </div>
-                            <h2 class="text-3xl font-montserrat font-bold">Faire évoluer le métier et les pratiques</h2>
+                            <h2 class="text-3xl font-montserrat font-bold">Faire évoluer le métier et préparer les métiers de demain</h2>
                         </div>
                         <button onclick="closeModal('modal4')" class="text-white hover:text-gray-200 transition-colors">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -437,23 +436,15 @@
                                 <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">🎯</span>
                                 Objectifs
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Adapter l'accompagnement aux mutations (numérique, écologique, sociétale).</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Anticiper les mutations (numérique, transition écologique, citoyenneté, emploi).</p>
                         </div>
                         <div class="bg-gradient-to-br from-txik-txak/5 to-txik-txak/10 p-6 rounded-2xl border border-txik-txak/20">
                             <h3 class="font-montserrat font-bold text-txik-txak mb-4 flex items-center">
-                                <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">✓</span>
-                                Pertinence
+                                <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">❓</span>
+                                Questions clés
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Anticiper les compétences et pratiques de demain.</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Quelles compétences renforcer ? Quels métiers émergent en Mission Locale (numérique, santé mentale, citoyenneté, data) ?</p>
                         </div>
-                    </div>
-                    
-                    <div class="bg-ml-gray p-6 rounded-2xl">
-                        <h3 class="font-montserrat font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white text-sm mr-3">👥</span>
-                            Ressources internes
-                        </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Pôle professionnalisation, conseillers numériques/mobilité.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-baserriberri/10 via-white to-txik-txak/10 p-6 rounded-2xl border-2 border-dashed border-baserriberri/30">
@@ -461,7 +452,7 @@
                             <span class="w-8 h-8 bg-gradient-to-r from-baserriberri to-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">🔧</span>
                             Méthode séminaire
                         </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Ateliers prospectifs "En 2030…".</p>
+                        <p class="font-nunito text-gray-700 leading-relaxed">Ateliers prospectifs "Mission Locale 2030".</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-green-50 to-green-100 border-l-6 border-green-400 p-6 rounded-r-2xl">
@@ -469,7 +460,7 @@
                             <span class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white text-sm mr-3">📋</span>
                             Livrable
                         </h3>
-                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Feuille de route de professionnalisation thématique.</p>
+                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Feuille de route professionnalisation et métiers émergents.</p>
                     </div>
                 </div>
             </div>
@@ -477,9 +468,9 @@
     </div>
 
     <!-- Modal 5 - Nos valeurs dans le RPE -->
-    <div id="modal5" class="fixed inset-0 bg-black bg-opacity-60 modal-backdrop hidden z-50" onclick="closeModal('modal5')">
-        <div class="flex items-center justify-center min-h-screen p-6">
-            <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
+    <div id="modal5" class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50" onclick="closeModal('modal5')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
                 <div class="bg-gradient-to-r from-txik-txak to-txik-txak/80 text-white p-8 rounded-t-3xl">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
@@ -504,23 +495,15 @@
                                 <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">🎯</span>
                                 Objectifs
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Clarifier notre spécificité (proximité, approche globale, inclusion).</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Clarifier la spécificité Mission Locale → accompagnement global, proximité, inclusion.</p>
                         </div>
                         <div class="bg-gradient-to-br from-baserriberri/5 to-baserriberri/10 p-6 rounded-2xl border border-baserriberri/20">
                             <h3 class="font-montserrat font-bold text-baserriberri mb-4 flex items-center">
-                                <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">✓</span>
-                                Pertinence
+                                <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">❓</span>
+                                Questions clés
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Défendre la singularité Mission Locale dans le réseau emploi.</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Quelles valeurs portons-nous ? Comment les affirmer dans le RPE ?</p>
                         </div>
-                    </div>
-                    
-                    <div class="bg-ml-gray p-6 rounded-2xl">
-                        <h3 class="font-montserrat font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white text-sm mr-3">👥</span>
-                            Ressources internes
-                        </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Direction, cellule stratégie.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-txik-txak/10 via-white to-baserriberri/10 p-6 rounded-2xl border-2 border-dashed border-txik-txak/30">
@@ -536,17 +519,17 @@
                             <span class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white text-sm mr-3">📋</span>
                             Livrable
                         </h3>
-                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Charte des valeurs Mission Locale dans le RPE.</p>
+                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Charte des valeurs Mission Locale intégrée dans le RPE.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal 6 - Lever les freins -->
-    <div id="modal6" class="fixed inset-0 bg-black bg-opacity-60 modal-backdrop hidden z-50" onclick="closeModal('modal6')">
-        <div class="flex items-center justify-center min-h-screen p-6">
-            <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
+    <!-- Modal 6 - Communication & Transversalité -->
+    <div id="modal6" class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50" onclick="closeModal('modal6')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
                 <div class="bg-gradient-to-r from-baserriberri to-baserriberri/80 text-white p-8 rounded-t-3xl">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
@@ -555,7 +538,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                                 </svg>
                             </div>
-                            <h2 class="text-3xl font-montserrat font-bold">Lever les freins : mieux communiquer et travailler ensemble</h2>
+                            <h2 class="text-3xl font-montserrat font-bold">Communication, transversalité & fonctions support</h2>
                         </div>
                         <button onclick="closeModal('modal6')" class="text-white hover:text-gray-200 transition-colors">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -571,23 +554,15 @@
                                 <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">🎯</span>
                                 Objectifs
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Identifier et résoudre ce qui entrave l'accompagnement.</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Renforcer l'interconnaissance, la coopération interservices, valoriser les fonctions support.</p>
                         </div>
                         <div class="bg-gradient-to-br from-txik-txak/5 to-txik-txak/10 p-6 rounded-2xl border border-txik-txak/20">
                             <h3 class="font-montserrat font-bold text-txik-txak mb-4 flex items-center">
-                                <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">✓</span>
-                                Pertinence
+                                <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">❓</span>
+                                Questions clés
                             </h3>
-                            <p class="font-nunito text-gray-700 leading-relaxed">Renforcer transversalité interne et articulation interservices.</p>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Comment se connaître mieux entre services ? Comment fluidifier nos process ? Quelle place pour les fonctions support dans le parcours jeune ?</p>
                         </div>
-                    </div>
-                    
-                    <div class="bg-ml-gray p-6 rounded-2xl">
-                        <h3 class="font-montserrat font-bold text-gray-800 mb-4 flex items-center">
-                            <span class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white text-sm mr-3">👥</span>
-                            Ressources internes
-                        </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Coordinateurs, équipes pluridisciplinaires.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-baserriberri/10 via-white to-txik-txak/10 p-6 rounded-2xl border-2 border-dashed border-baserriberri/30">
@@ -595,7 +570,7 @@
                             <span class="w-8 h-8 bg-gradient-to-r from-baserriberri to-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">🔧</span>
                             Méthode séminaire
                         </h3>
-                        <p class="font-nunito text-gray-700 leading-relaxed">Diagnostic participatif + plan d'amélioration.</p>
+                        <p class="font-nunito text-gray-700 leading-relaxed">Speed-meeting métiers, cartographie des interactions, plan d'amélioration continue.</p>
                     </div>
 
                     <div class="bg-gradient-to-r from-green-50 to-green-100 border-l-6 border-green-400 p-6 rounded-r-2xl">
@@ -603,8 +578,142 @@
                             <span class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white text-sm mr-3">📋</span>
                             Livrable
                         </h3>
-                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Plan de communication interne et de coopération.</p>
+                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Guide interne "Qui fait quoi ?" + plan de communication interne.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 7 - Restructurer l'accueil -->
+    <div id="modal7" class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50" onclick="closeModal('modal7')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto slide-in shadow-2xl" onclick="event.stopPropagation()">
+                <div class="bg-gradient-to-r from-txik-txak via-txik-txak/90 to-baserriberri text-white p-8 rounded-t-3xl">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2m-6 4h6"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-3xl font-montserrat font-bold">Restructurer l'accueil comme étape de l'accompagnement</h2>
+                        </div>
+                        <button onclick="closeModal('modal7')" class="text-white hover:text-gray-200 transition-colors">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-8 space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gradient-to-br from-txik-txak/5 to-txik-txak/10 p-6 rounded-2xl border border-txik-txak/20">
+                            <h3 class="font-montserrat font-bold text-txik-txak mb-4 flex items-center">
+                                <span class="w-8 h-8 bg-txik-txak rounded-lg flex items-center justify-center text-white text-sm mr-3">🎯</span>
+                                Objectifs
+                            </h3>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Transformer l'accueil en première étape active du parcours.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-baserriberri/5 to-baserriberri/10 p-6 rounded-2xl border border-baserriberri/20">
+                            <h3 class="font-montserrat font-bold text-baserriberri mb-4 flex items-center">
+                                <span class="w-8 h-8 bg-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">❓</span>
+                                Questions clés
+                            </h3>
+                            <p class="font-nunito text-gray-700 leading-relaxed">Comment rendre l'accueil plus inclusif, plus engageant et plus diagnostique ?</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-txik-txak/10 via-white to-baserriberri/10 p-6 rounded-2xl border-2 border-dashed border-txik-txak/30">
+                        <h3 class="font-montserrat font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-gradient-to-r from-txik-txak to-baserriberri rounded-lg flex items-center justify-center text-white text-sm mr-3">🔧</span>
+                            Méthode séminaire
+                        </h3>
+                        <p class="font-nunito text-gray-700 leading-relaxed">Ateliers de co-design (espaces, postures, outils).</p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-50 to-green-100 border-l-6 border-green-400 p-6 rounded-r-2xl">
+                        <h3 class="font-montserrat font-bold text-green-700 mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white text-sm mr-3">📋</span>
+                            Livrable
+                        </h3>
+                        <p class="font-nunito text-green-600 leading-relaxed font-semibold">Plan de réorganisation de l'accueil → diagnostic flash + accueil hybride (physique/numérique).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Résultats attendus - Section fixe en bas -->
+    <div class="fixed bottom-4 right-4 z-40">
+        <button onclick="toggleResults()" class="bg-gradient-to-r from-txik-txak to-baserriberri text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-nunito font-semibold flex items-center">
+            <span>✅ Résultats attendus</span>
+            <svg id="results-arrow" class="w-5 h-5 ml-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Panel des résultats -->
+    <div id="results-panel" class="fixed bottom-0 left-0 right-0 bg-white shadow-2xl transform translate-y-full transition-transform duration-500 z-30 border-t-4 border-txik-txak">
+        <div class="p-6 max-h-80 overflow-y-auto">
+            <h3 class="text-2xl font-montserrat font-bold gradient-text mb-6 text-center">Résultats Attendus du Séminaire</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-gradient-to-br from-txik-txak/5 to-txik-txak/10 p-4 rounded-xl border border-txik-txak/20">
+                    <div class="flex items-center mb-2">
+                        <span class="text-lg mr-2">📊</span>
+                        <h4 class="font-montserrat font-semibold text-gray-800 text-sm">Diagnostic partagé</h4>
+                    </div>
+                    <p class="text-xs text-gray-600 font-nunito">de l'accompagnement</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-baserriberri/5 to-baserriberri/10 p-4 rounded-xl border border-baserriberri/20">
+                    <div class="flex items-center mb-2">
+                        <span class="text-lg mr-2">👥</span>
+                        <h4 class="font-montserrat font-semibold text-gray-800 text-sm">Conseil des Jeunes</h4>
+                    </div>
+                    <p class="text-xs text-gray-600 font-nunito">amorcé</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-txik-txak/5 to-txik-txak/10 p-4 rounded-xl border border-txik-txak/20">
+                    <div class="flex items-center mb-2">
+                        <span class="text-lg mr-2">🏢</span>
+                        <h4 class="font-montserrat font-semibold text-gray-800 text-sm">Rôle ML dans RPE</h4>
+                    </div>
+                    <p class="text-xs text-gray-600 font-nunito">affirmation claire</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-baserriberri/5 to-baserriberri/10 p-4 rounded-xl border border-baserriberri/20">
+                    <div class="flex items-center mb-2">
+                        <span class="text-lg mr-2">🚀</span>
+                        <h4 class="font-montserrat font-semibold text-gray-800 text-sm">Feuille de route</h4>
+                    </div>
+                    <p class="text-xs text-gray-600 font-nunito">métiers & professionnalisation</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-txik-txak/5 to-txik-txak/10 p-4 rounded-xl border border-txik-txak/20">
+                    <div class="flex items-center mb-2">
+                        <span class="text-lg mr-2">❤️</span>
+                        <h4 class="font-montserrat font-semibold text-gray-800 text-sm">Charte des valeurs</h4>
+                    </div>
+                    <p class="text-xs text-gray-600 font-nunito">Mission Locale</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-baserriberri/5 to-baserriberri/10 p-4 rounded-xl border border-baserriberri/20">
+                    <div class="flex items-center mb-2">
+                        <span class="text-lg mr-2">💬</span>
+                        <h4 class="font-montserrat font-semibold text-gray-800 text-sm">Plan transversalité</h4>
+                    </div>
+                    <p class="text-xs text-gray-600 font-nunito">& communication interne</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-txik-txak/5 to-txik-txak/10 p-4 rounded-xl border border-txik-txak/20 md:col-span-2">
+                    <div class="flex items-center mb-2">
+                        <span class="text-lg mr-2">🏠</span>
+                        <h4 class="font-montserrat font-semibold text-gray-800 text-sm">Schéma d'accueil rénové</h4>
+                    </div>
+                    <p class="text-xs text-gray-600 font-nunito">diagnostic flash + hybride</p>
                 </div>
             </div>
         </div>
@@ -621,6 +730,19 @@
             document.body.style.overflow = 'auto';
         }
 
+        function toggleResults() {
+            const panel = document.getElementById('results-panel');
+            const arrow = document.getElementById('results-arrow');
+            
+            if (panel.classList.contains('translate-y-full')) {
+                panel.classList.remove('translate-y-full');
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                panel.classList.add('translate-y-full');
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
         // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
@@ -630,16 +752,35 @@
                         closeModal(modal.id);
                     }
                 });
+                
+                // Close results panel
+                const panel = document.getElementById('results-panel');
+                const arrow = document.getElementById('results-arrow');
+                if (!panel.classList.contains('translate-y-full')) {
+                    panel.classList.add('translate-y-full');
+                    arrow.style.transform = 'rotate(0deg)';
+                }
             }
         });
 
-        // Add subtle parallax effect on scroll
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('header');
-            const speed = scrolled * 0.5;
-            parallax.style.transform = `translateY(${speed}px)`;
-        });
+        // Responsive adjustments
+        function adjustLayout() {
+            const container = document.querySelector('.presentation-container');
+            const windowRatio = window.innerWidth / window.innerHeight;
+            const targetRatio = 16 / 9;
+            
+            if (windowRatio > targetRatio) {
+                container.style.height = '100vh';
+                container.style.width = `${100 * targetRatio}vh`;
+            } else {
+                container.style.width = '100vw';
+                container.style.height = `${100 / targetRatio}vw`;
+            }
+        }
+
+        window.addEventListener('resize', adjustLayout);
+        adjustLayout();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980f5bcf959c2a74',t:'MTc1ODE4Mjk0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980f95b27083d141',t:'MTc1ODE4NTMxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
