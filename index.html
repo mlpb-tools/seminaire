@@ -1,1 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Locale Pays Basque - Présentation Interactive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ml-turquoise': '#20B2AA',
+                        'ml-orange': '#FF6B35',
+                        'ml-gray': '#F5F5F5',
+                        'ml-dark-gray': '#6B7280'
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'nunito': ['Nunito', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .modal-backdrop {
+            backdrop-filter: blur(5px);
+        }
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-ml-gray to-white font-lato">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-montserrat font-bold text-ml-turquoise mb-2">Mission Locale Pays Basque</h1>
+                <p class="text-xl text-ml-dark-gray font-nunito">Présentation Interactive - Axes Stratégiques</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Bloc 1 - Procédures & Qualité -->
+            <div class="card-hover bg-white rounded-xl shadow-lg p-6 cursor-pointer border-l-4 border-ml-turquoise" onclick="openModal('modal1')">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-ml-turquoise rounded-full flex items-center justify-center text-white font-bold text-xl">1</div>
+                    <h3 class="ml-4 text-xl font-montserrat font-semibold text-gray-800">Procédures & Qualité</h3>
+                </div>
+                <p class="text-ml-dark-gray font-nunito mb-4">Sécuriser les parcours jeunes et homogénéiser les pratiques</p>
+                <div class="flex items-center text-ml-orange font-semibold">
+                    <span>Découvrir</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Bloc 2 - Participation des Jeunes -->
+            <div class="card-hover bg-white rounded-xl shadow-lg p-6 cursor-pointer border-l-4 border-ml-orange" onclick="openModal('modal2')">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-ml-orange rounded-full flex items-center justify-center text-white font-bold text-xl">2</div>
+                    <h3 class="ml-4 text-xl font-montserrat font-semibold text-gray-800">Participation des Jeunes</h3>
+                </div>
+                <p class="text-ml-dark-gray font-nunito mb-4">Créer un Conseil des Jeunes attractif et donner voix aux jeunes</p>
+                <div class="flex items-center text-ml-orange font-semibold">
+                    <span>Découvrir</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Bloc 3 - Fondamentaux & Professionnalisation -->
+            <div class="card-hover bg-white rounded-xl shadow-lg p-6 cursor-pointer border-l-4 border-ml-turquoise" onclick="openModal('modal3')">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-ml-turquoise rounded-full flex items-center justify-center text-white font-bold text-xl">3</div>
+                    <h3 class="ml-4 text-xl font-montserrat font-semibold text-gray-800">Fondamentaux & Professionnalisation</h3>
+                </div>
+                <p class="text-ml-dark-gray font-nunito mb-4">Revisiter accueil, diagnostic, plan d'action et suivi</p>
+                <div class="flex items-center text-ml-orange font-semibold">
+                    <span>Découvrir</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Bloc 4 - Transversalité & Partenariats -->
+            <div class="card-hover bg-white rounded-xl shadow-lg p-6 cursor-pointer border-l-4 border-ml-orange" onclick="openModal('modal4')">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-ml-orange rounded-full flex items-center justify-center text-white font-bold text-xl">4</div>
+                    <h3 class="ml-4 text-xl font-montserrat font-semibold text-gray-800">Transversalité & Partenariats</h3>
+                </div>
+                <p class="text-ml-dark-gray font-nunito mb-4">Décloisonner le travail et renforcer les partenariats</p>
+                <div class="flex items-center text-ml-orange font-semibold">
+                    <span>Découvrir</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Bloc 5 - Transition & Efficience -->
+            <div class="card-hover bg-white rounded-xl shadow-lg p-6 cursor-pointer border-l-4 border-ml-turquoise" onclick="openModal('modal5')">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-ml-turquoise rounded-full flex items-center justify-center text-white font-bold text-xl">5</div>
+                    <h3 class="ml-4 text-xl font-montserrat font-semibold text-gray-800">Transition & Efficience</h3>
+                </div>
+                <p class="text-ml-dark-gray font-nunito mb-4">Intégrer les transitions écologique, numérique et sociétale</p>
+                <div class="flex items-center text-ml-orange font-semibold">
+                    <span>Découvrir</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Bloc 6 - Méthodes & Valeurs dans le RPE -->
+            <div class="card-hover bg-white rounded-xl shadow-lg p-6 cursor-pointer border-l-4 border-ml-orange" onclick="openModal('modal6')">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-ml-orange rounded-full flex items-center justify-center text-white font-bold text-xl">6</div>
+                    <h3 class="ml-4 text-xl font-montserrat font-semibold text-gray-800">Méthodes & Valeurs dans le RPE</h3>
+                </div>
+                <p class="text-ml-dark-gray font-nunito mb-4">Affirmer la spécificité Mission Locale dans le RPE</p>
+                <div class="flex items-center text-ml-orange font-semibold">
+                    <span>Découvrir</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Modal 1 - Procédures & Qualité -->
+    <div id="modal1" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50" onclick="closeModal('modal1')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto slide-in" onclick="event.stopPropagation()">
+                <div class="bg-ml-turquoise text-white p-6 rounded-t-xl">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-montserrat font-bold">Procédures & Qualité</h2>
+                        <button onclick="closeModal('modal1')" class="text-white hover:text-gray-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🎯 Objectifs</h3>
+                            <p class="font-nunito text-gray-700">Sécuriser les parcours jeunes, clarifier les "sorties", homogénéiser les pratiques.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">✓ Pertinence</h3>
+                            <p class="font-nunito text-gray-700">La qualité dépend de procédures claires et partagées.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🏢 Ressources internes</h3>
+                            <p class="font-nunito text-gray-700">Cellule qualité, conseillers référents.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">🤝 Partenaires</h3>
+                            <p class="font-nunito text-gray-700">France Travail, Cap Emploi.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-ml-turquoise to-ml-orange text-white p-4 rounded-lg">
+                        <h3 class="font-montserrat font-semibold mb-2">💡 Caractère innovant</h3>
+                        <p class="font-nunito">Bibliothèque numérique de procédures évolutives, fiches réflexes simples.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-green-700 mb-2">📈 Apport insertion</h3>
+                            <p class="font-nunito text-green-600">Parcours lisibles, moins de ruptures.</p>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-yellow-700 mb-2">⚠️ Points de vigilance</h3>
+                            <p class="font-nunito text-yellow-600">Éviter la lourdeur administrative, mise à jour régulière.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 - Participation des Jeunes -->
+    <div id="modal2" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50" onclick="closeModal('modal2')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto slide-in" onclick="event.stopPropagation()">
+                <div class="bg-ml-orange text-white p-6 rounded-t-xl">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-montserrat font-bold">Participation des Jeunes</h2>
+                        <button onclick="closeModal('modal2')" class="text-white hover:text-gray-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🎯 Objectifs</h3>
+                            <p class="font-nunito text-gray-700">Créer un Conseil des Jeunes attractif, donner voix et place aux jeunes.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">✓ Pertinence</h3>
+                            <p class="font-nunito text-gray-700">Replacer les jeunes au centre et renforcer leur pouvoir d'agir.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🏢 Ressources internes</h3>
+                            <p class="font-nunito text-gray-700">Animateurs CEJ, conseillers citoyenneté.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">🤝 Partenaires</h3>
+                            <p class="font-nunito text-gray-700">Associations jeunesse, Pistes Solidaires.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-ml-orange to-ml-turquoise text-white p-4 rounded-lg">
+                        <h3 class="font-montserrat font-semibold mb-2">💡 Caractère innovant</h3>
+                        <p class="font-nunito">Co-écriture d'une charte jeunes, ateliers participatifs (forum ouvert, fresque).</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-green-700 mb-2">📈 Apport insertion</h3>
+                            <p class="font-nunito text-green-600">Sentiment d'utilité, remobilisation, développement de compétences citoyennes.</p>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-yellow-700 mb-2">⚠️ Points de vigilance</h3>
+                            <p class="font-nunito text-yellow-600">Attractivité et reconnaissance réelle de la participation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 - Fondamentaux & Professionnalisation -->
+    <div id="modal3" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50" onclick="closeModal('modal3')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto slide-in" onclick="event.stopPropagation()">
+                <div class="bg-ml-turquoise text-white p-6 rounded-t-xl">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-montserrat font-bold">Fondamentaux & Professionnalisation</h2>
+                        <button onclick="closeModal('modal3')" class="text-white hover:text-gray-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🎯 Objectifs</h3>
+                            <p class="font-nunito text-gray-700">Revisiter accueil, diagnostic, plan d'action, suivi, sortie.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">✓ Pertinence</h3>
+                            <p class="font-nunito text-gray-700">Socle indispensable, mais à adapter aux mutations sociales et numériques.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🏢 Ressources internes</h3>
+                            <p class="font-nunito text-gray-700">Conseillers expérimentés, pôle professionnalisation.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">🤝 Partenaires</h3>
+                            <p class="font-nunito text-gray-700">CFA, employeurs, structures d'insertion.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-ml-turquoise to-ml-orange text-white p-4 rounded-lg">
+                        <h3 class="font-montserrat font-semibold mb-2">💡 Caractère innovant</h3>
+                        <p class="font-nunito">World Café, personas jeunes, capitalisation Itsasu.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-green-700 mb-2">📈 Apport insertion</h3>
+                            <p class="font-nunito text-green-600">Accompagnement plus fluide et homogène.</p>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-yellow-700 mb-2">⚠️ Points de vigilance</h3>
+                            <p class="font-nunito text-yellow-600">Équilibre cadre commun / souplesse individuelle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 - Transversalité & Partenariats -->
+    <div id="modal4" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50" onclick="closeModal('modal4')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto slide-in" onclick="event.stopPropagation()">
+                <div class="bg-ml-orange text-white p-6 rounded-t-xl">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-montserrat font-bold">Transversalité & Partenariats</h2>
+                        <button onclick="closeModal('modal4')" class="text-white hover:text-gray-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🎯 Objectifs</h3>
+                            <p class="font-nunito text-gray-700">Décloisonner le travail interne, renforcer articulation France Travail / partenaires.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">✓ Pertinence</h3>
+                            <p class="font-nunito text-gray-700">Fluidifier les parcours et éviter blocages.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🏢 Ressources internes</h3>
+                            <p class="font-nunito text-gray-700">Pôle outillage & innovation, coordinateurs de projets.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">🤝 Partenaires</h3>
+                            <p class="font-nunito text-gray-700">France Travail, collectivités, associations ESS.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-ml-orange to-ml-turquoise text-white p-4 rounded-lg">
+                        <h3 class="font-montserrat font-semibold mb-2">💡 Caractère innovant</h3>
+                        <p class="font-nunito">Fiches ML ↔ FT co-rédigées, outils collaboratifs partagés.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-green-700 mb-2">📈 Apport insertion</h3>
+                            <p class="font-nunito text-green-600">Parcours plus rapides, lisibles et sécurisés.</p>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-yellow-700 mb-2">⚠️ Points de vigilance</h3>
+                            <p class="font-nunito text-yellow-600">Coordination régulière et actualisée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 - Transition & Efficience -->
+    <div id="modal5" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50" onclick="closeModal('modal5')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto slide-in" onclick="event.stopPropagation()">
+                <div class="bg-ml-turquoise text-white p-6 rounded-t-xl">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-montserrat font-bold">Transition & Efficience</h2>
+                        <button onclick="closeModal('modal5')" class="text-white hover:text-gray-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🎯 Objectifs</h3>
+                            <p class="font-nunito text-gray-700">Intégrer transition écologique, numérique et sociétale dans l'accompagnement, avec efficience budgétaire.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">✓ Pertinence</h3>
+                            <p class="font-nunito text-gray-700">Répondre aux mutations du monde et aux contraintes financières.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🏢 Ressources internes</h3>
+                            <p class="font-nunito text-gray-700">Conseillers numériques et mobilité, pôle innovation.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">🤝 Partenaires</h3>
+                            <p class="font-nunito text-gray-700">Fibre 64, syndicats mobilités, associations environnement.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-ml-turquoise to-ml-orange text-white p-4 rounded-lg">
+                        <h3 class="font-montserrat font-semibold mb-2">💡 Caractère innovant</h3>
+                        <p class="font-nunito">Fresques collaboratives, repérage "haut impact / faible coût".</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-green-700 mb-2">📈 Apport insertion</h3>
+                            <p class="font-nunito text-green-600">Insertion durable, adaptée aux compétences et métiers de demain.</p>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-yellow-700 mb-2">⚠️ Points de vigilance</h3>
+                            <p class="font-nunito text-yellow-600">Prioriser, mutualiser, éviter la dispersion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6 - Méthodes & Valeurs dans le RPE -->
+    <div id="modal6" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50" onclick="closeModal('modal6')">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto slide-in" onclick="event.stopPropagation()">
+                <div class="bg-ml-orange text-white p-6 rounded-t-xl">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-montserrat font-bold">Méthodes & Valeurs dans le RPE</h2>
+                        <button onclick="closeModal('modal6')" class="text-white hover:text-gray-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🎯 Objectifs</h3>
+                            <p class="font-nunito text-gray-700">Affirmer la spécificité Mission Locale au sein du Réseau Public de l'Emploi (RPE).</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">✓ Pertinence</h3>
+                            <p class="font-nunito text-gray-700">Clarifier nos méthodes (proximité, approche globale, accompagnement individualisé) et nos valeurs (égalité, inclusion, émancipation).</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-turquoise mb-2">🏢 Ressources internes</h3>
+                            <p class="font-nunito text-gray-700">Direction, pôle communication, conseillers référents.</p>
+                        </div>
+                        <div class="bg-ml-gray p-4 rounded-lg">
+                            <h3 class="font-montserrat font-semibold text-ml-orange mb-2">🤝 Partenaires</h3>
+                            <p class="font-nunito text-gray-700">France Travail, Cap Emploi, collectivités.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-ml-orange to-ml-turquoise text-white p-4 rounded-lg">
+                        <h3 class="font-montserrat font-semibold mb-2">💡 Caractère innovant</h3>
+                        <p class="font-nunito">Formaliser une charte Mission Locale dans le RPE, valoriser nos pratiques singulières.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-green-700 mb-2">📈 Apport insertion</h3>
+                            <p class="font-nunito text-green-600">Reconnaissance accrue du rôle Mission Locale, meilleure articulation dans le réseau.</p>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h3 class="font-montserrat font-semibold text-yellow-700 mb-2">⚠️ Points de vigilance</h3>
+                            <p class="font-nunito text-yellow-600">Rester lisible et complémentaire, éviter redondances avec France Travail.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('[id^="modal"]');
+                modals.forEach(modal => {
+                    if (!modal.classList.contains('hidden')) {
+                        closeModal(modal.id);
+                    }
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980e4ab8c4f16fe7',t:'MTc1ODE3MTc1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
 
